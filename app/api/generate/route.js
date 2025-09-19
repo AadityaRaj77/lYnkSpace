@@ -15,15 +15,15 @@ export async function GET() {
 export async function POST(req) {
     try {
         const body = await req.json();
-        const { username, link_name, link_url, photo_url } = body;
+        const { username, link_text, link, piclink } = body;
 
-        if (!username || !link_name || !link_url) {
+        if (!username || !link_text || !link) {
             return new Response(JSON.stringify({ error: "Missing fields!" }), { status: 400 });
         }
 
         await db.query(
             "INSERT INTO links (username, link_name, link_url, photo_url) VALUES (?, ?, ?, ?)",
-            [username, link_name, link_url, photo_url]
+            [username, link_text, link, piclink]
         );
 
         return Response.json({ message: "Add ho gya!" });
