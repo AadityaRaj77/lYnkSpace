@@ -2,6 +2,7 @@
 import React from 'react'
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { motion } from "motion/react"
 
 function Generate() {
     const [links, setLinks] = useState([]);
@@ -30,25 +31,78 @@ function Generate() {
             <div className='space-y-8'>
                 <h1 className='text-4xl font-semibold text-white'>Create your lYnkSpace</h1>
                 <div className='space-y-2'>
-                    <h1 className='text-xl text-white font-medium'>Step1:</h1>
+                    <h1 className='text-xl text-white font-medium'>Step 1</h1>
                     <h1 className='text-xl text-white font-medium'>Claim your handle</h1>
-                    <input type='text' placeholder='Enter your username' className='bg-white px-3 py-2 rounded-4xl' name='username' onChange={handleChange}></input>
+                    <motion.input
+                        type="text"
+                        name='username'
+                        className='bg-white px-3 py-2 rounded-4xl'
+                        placeholder="Enter your username "
+                        initial={{ x: -300, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ type: "spring", stiffness: 120, damping: 40 }}
+                        onChange={handleChange}
+                    />
                 </div>
                 <div className='space-y-4'>
-                    <h1 className='text-xl text-white font-medium'>Step2:</h1>
+                    <h1 className='text-xl text-white font-medium'>Step 2</h1>
                     <h1 className='text-xl text-white font-medium'>Add your links</h1>
                     <div className='space-x-4'>
-                        <input type='text' placeholder='Enter link text' className='bg-white px-3 py-2 rounded-4xl' name='link_text' onChange={handleChange}></input>
-                        <input type='text' placeholder='Enter link' className='bg-white px-3 py-2 rounded-4xl' name='link' onChange={handleChange}></input>
-                        <button className='bg-violet-600 px-4 py-2 text-white rounded-4xl hover:bg-violet-700 hover:cursor-pointer'>+ Add links</button>
+                        <motion.input
+                            type="text"
+                            name='link_text'
+                            className='bg-white px-3 py-2 rounded-4xl'
+                            placeholder="Enter link text"
+                            initial={{ x: -300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 120, damping: 40 }}
+                            onChange={handleChange}
+                        />
+                        <motion.input
+                            type="text"
+                            name='link'
+                            className='bg-white px-3 py-2 rounded-4xl'
+                            placeholder="Enter link"
+                            initial={{ x: -300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 120, damping: 40 }}
+                            onChange={handleChange}
+                        />
+                        <motion.button
+                            whileHover={{ scale: 1.050 }}
+                            whileTap={{ scale: 0.97 }}
+                            onHoverStart={() => console.log('hover started!')}
+                            initial={{ x: 300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 120, damping: 40 }}
+                            className='bg-violet-600 px-4 py-2 text-white rounded-4xl hover:bg-violet-700 hover:cursor-pointer'
+                        >+ Add links</motion.button>
                     </div>
                 </div>
                 <div className='space-y-4'>
-                    <h1 className='text-xl text-white font-medium'>Step3:</h1>
+                    <h1 className='text-xl text-white font-medium'>Step 3</h1>
                     <h1 className='text-xl text-white font-medium'>Add your picture and finalize</h1>
                     <div className='space-x-4'>
-                        <input type='text' placeholder='Enter link to your picture' className='bg-white px-3 py-2 rounded-4xl' name='piclink' onChange={handleChange}></input>
-                        <button className='bg-violet-600 px-4 py-2 text-white rounded-4xl hover:bg-violet-700 hover:cursor-pointer' onClick={addLinks}>Create your LinkSpace</button>
+                        <motion.input
+                            type="text"
+                            name='piclink'
+                            className='bg-white px-3 py-2 rounded-4xl'
+                            placeholder="Enter picture link"
+                            initial={{ x: -300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 120, damping: 40 }}
+                            onChange={handleChange}
+                        />
+                        <motion.button
+                            whileHover={{ scale: 1.050 }}
+                            whileTap={{ scale: 0.97 }}
+                            onHoverStart={() => console.log('hover started!')}
+                            initial={{ x: 300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 120, damping: 40 }}
+                            className='bg-violet-600 px-4 py-2 text-white rounded-4xl hover:bg-violet-700 hover:cursor-pointer'
+                            onClick={addLinks}
+                        >Create your LinkSpace</motion.button>
                     </div>
                 </div>
                 <div></div>

@@ -1,7 +1,10 @@
+"use client"
 import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
 import NavLink from './navanimate';
+import { motion } from "motion/react"
+
 
 function Navbar() {
     return (
@@ -10,12 +13,14 @@ function Navbar() {
                 <Image src='/vercel.svg' alt='lYnkSpace' width={50} height={50} className=''></Image>
             </div>
             <div className='space-x-12 flex items-center'>
-                <div className='flex space-x-8'>
+                <motion.div className='flex space-x-8' initial={{ y: -25, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 120, damping: 40 }}>
                     <NavLink href='/'>Home</NavLink>
                     <NavLink href='/about'>About</NavLink>
                     <NavLink href='/tools'>Tools</NavLink>
                     <NavLink href='/templates'>Templates</NavLink>
-                </div>
+                </motion.div>
                 <div className='font-semibold bg-purple-600 px-4 py-2 rounded-4xl hover:bg-purple-700'><Link href='/login'>Login</Link></div>
             </div>
         </nav>
