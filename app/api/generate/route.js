@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 
 //fetch all links
-export async function GET() {
+/*export async function GET() {
     try {
         const [rows] = await db.query("SELECT * FROM links ORDER BY created_at DESC");
         return Response.json(rows);
@@ -9,7 +9,7 @@ export async function GET() {
     catch (err) {
         return new Response(JSON.stringify({ error: err.message }), { status: 500 });
     }
-}
+}*/
 
 //insert new link
 export async function POST(req) {
