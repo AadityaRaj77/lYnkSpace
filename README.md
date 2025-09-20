@@ -1,5 +1,7 @@
 # Link sharing app
 
-## Build through NextJS
+## Build with NextJS
+
+## Database - MySQL
 
 ### Inspired by Linktree
